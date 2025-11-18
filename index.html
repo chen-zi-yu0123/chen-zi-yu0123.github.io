@@ -3,23 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Campus Girls - 成員個人頁</title>
+  <title>CAMPUS GIRLS · Member Profile</title>
 
-  <!-- 可愛一點的字體（可自行更換） -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- 俐落一點的字體 -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #fff7fb;
-      --card-bg: #ffffff;
-      --accent: #ff82a9;
-      --accent-light: #ffd4e4;
-      --text-main: #333333;
-      --text-sub: #777777;
-      --border-soft: #ffe0ef;
-      --shadow-soft: 0 12px 30px rgba(255, 130, 169, 0.16);
-      --radius-big: 24px;
+      --bg: #050509;
+      --bg-alt: #090919;
+      --card-bg: rgba(14, 14, 26, 0.92);
+      --accent: #ff4fa3;
+      --accent2: #4f7bff;
+      --accent-soft: rgba(255, 79, 163, 0.24);
+      --text-main: #f8f8ff;
+      --text-sub: #a7a8c7;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.8);
+      --radius-big: 22px;
       --radius-small: 12px;
+      --blur: 18px;
     }
 
     * {
@@ -29,10 +32,15 @@
     }
 
     body {
-      font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #ffeaf4, #fff7fb 40%, #ffffff 85%);
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(255, 79, 163, 0.2), transparent 55%),
+        radial-gradient(circle at 90% 0%, rgba(79, 123, 255, 0.2), transparent 55%),
+        radial-gradient(circle at 20% 100%, rgba(175, 118, 255, 0.2), transparent 55%),
+        #050509;
       color: var(--text-main);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -40,27 +48,31 @@
       color: inherit;
     }
 
-    /* 頁面寬度控制 */
     .container {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 1.2rem 1.2rem 3rem;
+      padding: 1.4rem 1.4rem 3rem;
     }
 
-    /* 頂部導覽列 */
+    /* Header / Nav */
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(14px);
-      background: rgba(255, 247, 251, 0.85);
-      border-bottom: 1px solid rgba(255, 208, 229, 0.7);
+      z-index: 50;
+      backdrop-filter: blur(var(--blur));
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 5, 13, 0.92),
+        rgba(5, 5, 13, 0.78),
+        transparent
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .nav {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 0.6rem 1.2rem;
+      padding: 0.7rem 1.4rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -70,37 +82,39 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.06em;
+      gap: 0.6rem;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--accent);
     }
 
     .logo-badge {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #ff82a9, #ffc2dd);
+      background: conic-gradient(from 180deg, #ff4fa3, #4f7bff, #ffd966, #ff4fa3);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
-      color: #fff;
-      box-shadow: 0 4px 14px rgba(255, 130, 169, 0.5);
+      font-size: 0.8rem;
+      color: #050509;
+      box-shadow: 0 0 20px rgba(255, 79, 163, 0.8);
     }
 
     .nav-links {
       display: flex;
-      gap: 1.2rem;
-      font-size: 0.9rem;
+      gap: 1.6rem;
+      font-size: 0.86rem;
     }
 
     .nav-links a {
       position: relative;
-      font-weight: 500;
+      font-weight: 400;
       color: var(--text-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
     }
 
     .nav-links a::after {
@@ -110,126 +124,144 @@
       bottom: -4px;
       width: 0;
       height: 2px;
-      background: var(--accent);
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
       border-radius: 999px;
-      transition: width 0.25s ease;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
     }
 
     .nav-links a:hover::after {
       width: 100%;
     }
 
-    /* Hero 區塊 */
+    /* Hero */
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 2.4rem;
       align-items: center;
       padding-top: 1.8rem;
     }
 
-    .hero-text small {
+    .hero-label {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.25rem 0.8rem;
+      padding: 0.22rem 0.9rem;
       border-radius: 999px;
-      border: 1px solid var(--accent-light);
-      background: rgba(255, 246, 251, 0.9);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: radial-gradient(circle at 0 0, rgba(255, 79, 163, 0.3), transparent 55%);
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .hero-text h1 {
-      margin-top: 0.8rem;
-      font-size: clamp(2.1rem, 4vw, 2.7rem);
-      line-height: 1.15;
-    }
-
-    .hero-text h1 span {
-      color: var(--accent);
-    }
-
-    .hero-text p {
-      margin-top: 0.7rem;
+      letter-spacing: 0.2em;
       color: var(--text-sub);
+    }
+
+    .hero-label-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #5affc9, #009e6e);
+      box-shadow: 0 0 10px rgba(90, 255, 201, 0.8);
+    }
+
+    .hero h1 {
+      margin-top: 0.9rem;
+      font-size: clamp(2.2rem, 4.2vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: 0.03em;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(120deg, #ff4fa3, #ffd966, #4f7bff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      margin-top: 0.7rem;
       font-size: 0.95rem;
-      max-width: 520px;
+      color: var(--text-sub);
+      max-width: 540px;
     }
 
     .hero-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.9rem;
+      gap: 0.45rem;
+      margin-top: 1rem;
     }
 
     .hero-tag {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.7rem;
+      font-size: 0.72rem;
+      padding: 0.2rem 0.7rem;
       border-radius: 999px;
-      background: #fff;
-      border: 1px dashed var(--accent-light);
-      color: var(--accent);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: linear-gradient(135deg, rgba(255, 79, 163, 0.18), rgba(79, 123, 255, 0.1));
+      color: #fef0ff;
+      backdrop-filter: blur(12px);
     }
 
     .hero-actions {
-      margin-top: 1.3rem;
+      margin-top: 1.4rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
+      gap: 0.9rem;
       align-items: center;
     }
 
     .btn-primary,
     .btn-ghost {
-      padding: 0.55rem 1.3rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 0.86rem;
+      font-weight: 500;
       border: 1px solid transparent;
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: all 0.22s ease;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #ff82a9, #ffc2dd);
-      color: #fff;
-      box-shadow: var(--shadow-soft);
+      background: linear-gradient(135deg, #ff4fa3, #ffd966, #4f7bff);
+      color: #050509;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8);
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(255, 103, 163, 0.35);
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 1);
     }
 
     .btn-ghost {
-      background: rgba(255, 255, 255, 0.8);
-      color: var(--accent);
-      border-color: var(--accent-light);
+      background: rgba(10, 10, 24, 0.6);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--text-main);
     }
 
     .btn-ghost:hover {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .hero-meta {
-      margin-top: 0.8rem;
-      font-size: 0.8rem;
+      margin-top: 1rem;
+      font-size: 0.78rem;
       color: var(--text-sub);
     }
 
     .hero-meta strong {
-      color: var(--accent);
+      color: #ffffff;
     }
 
-    /* 個人照片區 */
+    /* Hero Photo */
     .hero-photo-wrap {
       position: relative;
       display: flex;
@@ -238,219 +270,303 @@
     }
 
     .hero-card {
-      background: var(--card-bg);
-      border-radius: 28px;
-      padding: 1.2rem 1.2rem 1.5rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--border-soft);
-      position: relative;
-      overflow: hidden;
       width: 100%;
       max-width: 380px;
+      border-radius: 26px;
+      background: radial-gradient(circle at 0 0, rgba(255, 79, 163, 0.4), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(79, 123, 255, 0.4), transparent 55%),
+                  var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: var(--shadow-soft);
+      padding: 1.2rem 1.2rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(var(--blur));
     }
 
-    .decor-circle {
-      position: absolute;
-      width: 160px;
-      height: 160px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, #ffeaf4, #ffc2dd);
-      top: -40px;
-      right: -40px;
-      opacity: 0.6;
-    }
-
-    .decor-tag {
+    .card-tag {
       position: absolute;
       top: 1rem;
-      left: 1rem;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 0.2rem 0.7rem;
+      left: 1.1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      background: rgba(5, 5, 15, 0.7);
+      padding: 0.35rem 0.8rem;
       border-radius: 999px;
-      font-size: 0.75rem;
-      color: var(--accent);
-      border: 1px dashed var(--accent-light);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(12px);
+    }
+
+    .card-corner {
+      position: absolute;
+      inset: -50%;
+      background: conic-gradient(from 0deg, transparent 0 60deg, rgba(255, 255, 255, 0.16) 180deg, transparent 300deg 360deg);
+      opacity: 0.18;
+      mix-blend-mode: screen;
+      pointer-events: none;
     }
 
     .hero-photo {
       position: relative;
-      margin-top: 1.5rem;
+      margin-top: 1.9rem;
       display: flex;
       justify-content: center;
     }
 
-    .hero-photo img {
-      width: 210px;
-      height: 210px;
-      border-radius: 999px;
-      object-fit: cover;
-      border: 4px solid #ffffff;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+    .hero-photo-frame {
+      position: relative;
+      width: 220px;
+      height: 280px;
+      border-radius: 26px;
+      padding: 4px;
+      background: linear-gradient(135deg, rgba(255, 79, 163, 0.9), rgba(79, 123, 255, 0.9));
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
     }
 
-    .hero-badge {
+    .hero-photo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #11111c;
+    }
+
+    .hero-photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.02) saturate(1.1);
+    }
+
+    .photo-label {
       position: absolute;
-      bottom: 0.4rem;
-      right: 2rem;
-      background: #fff7fb;
+      left: -12px;
+      bottom: 14px;
+      transform: rotate(-7deg);
+      background: #050509;
+      color: #fefefe;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 0.25rem 0.7rem;
       border-radius: 999px;
-      padding: 0.3rem 0.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+    }
+
+    .hero-chip {
+      position: absolute;
+      bottom: 1.1rem;
+      right: 1.1rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(5, 5, 16, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.72rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      font-size: 0.75rem;
-      border: 1px solid var(--accent-light);
+      gap: 0.4rem;
+      backdrop-filter: blur(12px);
     }
 
-    .hero-badge-dot {
-      width: 8px;
-      height: 8px;
+    .chip-dot {
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
-      background: #65c66c;
+      background: radial-gradient(circle at 30% 30%, #ffea7a, #ff4f4f);
+      box-shadow: 0 0 10px rgba(255, 140, 0, 1);
     }
 
     .hero-info {
-      margin-top: 1.1rem;
-      text-align: center;
+      margin-top: 1.3rem;
+      text-align: left;
     }
 
-    .hero-info h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.2rem;
+    .hero-info-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      display: flex;
+      align-items: baseline;
+      gap: 0.45rem;
     }
 
-    .hero-info span {
-      font-size: 0.85rem;
+    .hero-info-name span {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
       color: var(--text-sub);
+    }
+
+    .hero-info-meta {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      margin-top: 0.25rem;
     }
 
     .hero-stats {
-      margin-top: 0.8rem;
+      margin-top: 0.9rem;
       display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      font-size: 0.75rem;
+      gap: 1.3rem;
+      font-size: 0.78rem;
       color: var(--text-sub);
     }
 
-    .hero-stats strong {
+    .hero-stats-item strong {
       display: block;
-      font-size: 0.95rem;
-      color: var(--accent);
+      font-size: 1rem;
+      color: #ffffff;
     }
 
-    /* 區域標題 */
+    /* Section title */
     .section-title {
-      margin-top: 2.4rem;
-      margin-bottom: 0.8rem;
-      font-size: 1.25rem;
+      margin-top: 2.5rem;
+      margin-bottom: 0.85rem;
+      font-size: 1.15rem;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.5rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #f5f5ff;
     }
 
-    .section-title::before {
-      content: "";
-      width: 6px;
+    .section-title span {
+      font-size: 0.8rem;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--text-sub);
+    }
+
+    .section-mark {
+      width: 18px;
       height: 18px;
       border-radius: 999px;
-      background: linear-gradient(180deg, #ff82a9, #ffc2dd);
+      background: conic-gradient(from 0deg, #ff4fa3, #4f7bff, #ffd966, #ff4fa3);
+      box-shadow: 0 0 18px rgba(255, 79, 163, 0.7);
     }
 
     .section-subtitle {
       font-size: 0.86rem;
       color: var(--text-sub);
       margin-bottom: 0.9rem;
+      max-width: 620px;
     }
 
-    /* 卡片共用樣式 */
+    /* Generic card */
     .card {
-      background: var(--card-bg);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.0));
       border-radius: var(--radius-big);
       border: 1px solid var(--border-soft);
-      padding: 1.1rem 1.3rem;
-      box-shadow: 0 10px 24px rgba(255, 130, 169, 0.08);
+      padding: 1.2rem 1.3rem;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(16px);
     }
 
-    /* 關於我 / 校園生活 */
+    /* About / Profile */
     .about-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
       gap: 1.4rem;
-      margin-top: 0.4rem;
     }
 
     .about-text p {
       font-size: 0.9rem;
-      color: var(--text-main);
-      margin-bottom: 0.4rem;
+      color: var(--text-sub);
+      margin-bottom: 0.55rem;
     }
 
     .tag-list {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-top: 0.4rem;
+      margin-top: 0.3rem;
     }
 
     .tag {
       font-size: 0.72rem;
-      padding: 0.18rem 0.6rem;
+      padding: 0.22rem 0.65rem;
       border-radius: 999px;
-      border: 1px solid var(--accent-light);
-      background: #fff9fc;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #f6f6ff;
+    }
+
+    .tag b {
       color: var(--accent);
+      font-weight: 500;
     }
 
     .timeline {
       list-style: none;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--text-sub);
     }
 
     .timeline li {
       padding: 0.4rem 0;
-      border-bottom: 1px dashed #ffe6f0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
     }
 
     .timeline strong {
-      color: var(--accent);
-      font-size: 0.9rem;
+      color: #ffffff;
+      font-size: 0.86rem;
     }
 
-    /* 課表 / 行程 */
+    /* Schedule */
     .schedule-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 0.7rem;
-      margin-top: 0.4rem;
-      font-size: 0.82rem;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.8rem;
+      font-size: 0.78rem;
     }
 
     .schedule-item {
-      background: #fff9fc;
+      background: rgba(9, 9, 25, 0.9);
       border-radius: var(--radius-small);
-      padding: 0.65rem 0.8rem;
-      border: 1px dashed var(--accent-light);
+      padding: 0.75rem 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .schedule-item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 79, 163, 0.18),
+        transparent 60%,
+        rgba(79, 123, 255, 0.18)
+      );
+      opacity: 0.25;
+      pointer-events: none;
     }
 
     .schedule-item h4 {
-      font-size: 0.85rem;
-      margin-bottom: 0.1rem;
-      color: var(--accent);
+      font-size: 0.78rem;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-main);
     }
 
     .schedule-item span {
       display: block;
       color: var(--text-sub);
+      position: relative;
+      z-index: 1;
     }
 
-    /* 照片牆 */
+    /* Gallery */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 0.7rem;
-      margin-top: 0.4rem;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.8rem;
     }
 
     .gallery-item {
@@ -458,44 +574,44 @@
       overflow: hidden;
       position: relative;
       cursor: pointer;
-      background: #ffe6f0;
+      background: #11111c;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 170px;
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
-      max-height: 180px;
+      max-height: 230px;
       object-fit: cover;
       display: block;
-      transition: transform 0.25s ease;
+      transition: transform 0.35s ease, filter 0.35s ease;
     }
 
     .gallery-item:hover img {
       transform: scale(1.05);
+      filter: brightness(1.06);
     }
 
     .gallery-label {
       position: absolute;
-      left: 0.6rem;
-      bottom: 0.6rem;
-      font-size: 0.72rem;
-      background: rgba(255, 255, 255, 0.88);
-      padding: 0.18rem 0.55rem;
+      left: 0.7rem;
+      bottom: 0.7rem;
+      font-size: 0.7rem;
+      padding: 0.22rem 0.7rem;
       border-radius: 999px;
-      color: var(--accent);
+      background: rgba(5, 5, 12, 0.85);
+      color: #fefefe;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
     }
 
-    /* 粉絲留言區 */
-    .fan-card {
-      margin-top: 0.4rem;
-    }
-
+    /* Fan message */
     .fan-row {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 1.1rem;
-      margin-top: 0.3rem;
-      font-size: 0.9rem;
+      gap: 1.2rem;
+      font-size: 0.86rem;
     }
 
     .fan-input {
@@ -503,7 +619,7 @@
     }
 
     .fan-input label {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-sub);
       display: block;
       margin-bottom: 0.18rem;
@@ -512,70 +628,77 @@
     .fan-input input,
     .fan-input textarea {
       width: 100%;
-      padding: 0.6rem 0.7rem;
+      padding: 0.65rem 0.75rem;
       border-radius: 10px;
-      border: 1px solid #ffd8ea;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       outline: none;
       font-family: inherit;
-      font-size: 0.9rem;
-      background: #fff;
+      font-size: 0.86rem;
+      background: rgba(4, 4, 16, 0.9);
+      color: var(--text-main);
     }
 
     .fan-input textarea {
-      min-height: 90px;
+      min-height: 110px;
       resize: vertical;
     }
 
     .fan-input input:focus,
     .fan-input textarea:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 2px rgba(255, 130, 169, 0.18);
+      box-shadow: 0 0 0 1px rgba(255, 79, 163, 0.6);
     }
 
     .fan-hint {
+      font-size: 0.76rem;
+      color: var(--text-sub);
+      margin-top: 0.2rem;
+    }
+
+    .fake-msg {
+      margin-top: 0.5rem;
+      background: rgba(5, 5, 18, 0.98);
+      border-radius: 14px;
+      padding: 0.7rem 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       font-size: 0.8rem;
       color: var(--text-sub);
     }
 
-    .fake-msg {
-      margin-top: 0.4rem;
-      background: #fff9fc;
-      border-radius: 14px;
-      padding: 0.6rem 0.7rem;
-      border: 1px dashed var(--accent-light);
-      font-size: 0.82rem;
-      color: var(--text-sub);
-    }
-
     .fake-msg strong {
-      color: var(--accent);
+      color: #ffffff;
     }
 
-    /* 底部資訊 */
+    /* Footer */
     footer {
-      margin-top: 2.4rem;
+      margin-top: 2.6rem;
       padding-top: 1.3rem;
-      border-top: 1px dashed #ffdbe9;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
       font-size: 0.78rem;
       color: var(--text-sub);
       text-align: center;
     }
 
     .footer-links {
-      margin-top: 0.4rem;
+      margin-top: 0.5rem;
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.2rem;
       flex-wrap: wrap;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
     }
 
     .footer-links a {
-      color: var(--accent);
+      color: var(--text-main);
+      opacity: 0.7;
     }
 
-    /* RWD 調整 */
-    @media (max-width: 768px) {
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    /* RWD */
+    @media (max-width: 840px) {
       .hero {
         grid-template-columns: 1fr;
       }
@@ -595,89 +718,112 @@
       .fan-row {
         grid-template-columns: 1fr;
       }
+    }
 
+    @media (max-width: 720px) {
       .nav-links {
-        display: none; /* 簡化：手機版藏起來導覽列 */
+        display: none;
       }
 
       .container {
         padding-inline: 1rem;
       }
+
+      .hero {
+        gap: 1.6rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- 導覽列 -->
   <header>
     <nav class="nav">
       <div class="logo">
         <div class="logo-badge">CG</div>
-        <span>Campus Girls</span>
+        <span>CAMPUS GIRLS</span>
       </div>
       <div class="nav-links">
-        <a href="#about">關於我</a>
-        <a href="#schedule">校園生活</a>
-        <a href="#gallery">照片牆</a>
-        <a href="#fans">粉絲留言</a>
+        <a href="#about">PROFILE</a>
+        <a href="#schedule">WEEKLY</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#fans">MESSAGE</a>
       </div>
     </nav>
   </header>
 
   <main class="container">
-    <!-- Hero 區：大頭照 + 簡介 -->
+    <!-- Hero -->
     <section class="hero">
-      <div class="hero-text">
-        <small>Campus Girl Group · 成員介紹</small>
-        <h1>嗨，我是 <span>小晴</span> ☀<br>校園女團的陽光 Vocal</h1>
-        <p>
-          就讀「XX大學 資訊管理學系」，平常在教室寫程式、社團練舞排歌。
-          喜歡粉色系、抹茶拿鐵和在放學後跟大家一起練團的時光。
+      <div>
+        <div class="hero-label">
+          <span class="hero-label-dot"></span>
+          CAMPUS GIRL GROUP · MEMBER FILE 01
+        </div>
+        <h1>
+          嗨，我是 <span>RIN</span><br>
+          校園女團的 <span>Multi-Style Performer</span>
+        </h1>
+        <p class="hero-sub">
+          XX 大學 資訊管理學系大二。白天寫程式、晚上練舞，假日不是在錄 cover，
+          就是在想下一套舞台造型。喜歡把學生身分跟舞台上的時尚感混在一起，
+          做一點不太乖的校園穿搭實驗。
         </p>
 
         <div class="hero-tags">
-          <span class="hero-tag">#主唱 Vocal</span>
-          <span class="hero-tag">#舞蹈社</span>
-          <span class="hero-tag">#少女系穿搭</span>
-          <span class="hero-tag">#期末公演準備中</span>
+          <span class="hero-tag">#Main Vocal</span>
+          <span class="hero-tag">#Urban × Girlcrush</span>
+          <span class="hero-tag">#Lookbook 愛好者</span>
+          <span class="hero-tag">#校園活動常駐</span>
         </div>
 
         <div class="hero-actions">
-          <a href="#fans" class="btn-primary">寫一封小紙條給我 ✨</a>
-          <a href="#gallery" class="btn-ghost">看更多校園日常 📸</a>
+          <a href="#fans" class="btn-primary">Drop Your Message 💌</a>
+          <a href="#gallery" class="btn-ghost">View Style Gallery ✦</a>
         </div>
 
         <div class="hero-meta">
-          目前準備 <strong>期末女團公演</strong>，預計在 <strong>6 月底</strong> 登場！
+          NEXT STAGE · 期末公演造型主題：
+          <strong>「Campus Night Runway」</strong> — 6 月底校內大禮堂見。
         </div>
       </div>
 
       <div class="hero-photo-wrap">
         <div class="hero-card">
-          <div class="decor-circle"></div>
-          <div class="decor-tag">成員個人頁 · 01</div>
+          <div class="card-corner"></div>
+          <div class="card-tag">RIN · CAMPUS STYLE LOG</div>
           <div class="hero-photo">
-            <!-- TODO: 換成自己的照片 -->
-            <img src="https://via.placeholder.com/400x400.png?text=Member+Photo" alt="成員大頭照">
-            <div class="hero-badge">
-              <span class="hero-badge-dot"></span>
-              練團模式：啟動中
+            <div class="hero-photo-frame">
+              <div class="hero-photo-inner">
+                <!-- 換成自己的照片 -->
+                <img src="https://via.placeholder.com/600x800.png?text=Fashion+Portrait" alt="成員時尚照">
+              </div>
+              <div class="photo-label">ON CAMPUS · NIGHT</div>
+            </div>
+            <div class="hero-chip">
+              <span class="chip-dot"></span>
+              LIVE MODE · READY
             </div>
           </div>
           <div class="hero-info">
-            <h2>小晴 Sunny</h2>
-            <span>XX大學 資管系 · 二年級</span>
+            <div class="hero-info-name">
+              RIN 小凜
+              <span>vocal · style · campus</span>
+            </div>
+            <div class="hero-info-meta">
+              XX 大學 資管系 · 2 年級 · 校園女團成員
+            </div>
             <div class="hero-stats">
-              <div>
-                <strong>3</strong>
+              <div class="hero-stats-item">
+                <strong>7</strong>
                 校園舞台
               </div>
-              <div>
-                <strong>5</strong>
-                原創翻唱
+              <div class="hero-stats-item">
+                <strong>12</strong>
+                Cover / Dance Clip
               </div>
-              <div>
+              <div class="hero-stats-item">
                 <strong>∞</strong>
-                少女心能量
+                Outfit Idea
               </div>
             </div>
           </div>
@@ -685,146 +831,172 @@
       </div>
     </section>
 
-    <!-- 關於我 + 校園生活 -->
+    <!-- Profile -->
     <section id="about">
-      <h2 class="section-title">關於我 About Me</h2>
+      <h2 class="section-title">
+        <div class="section-mark"></div>
+        PROFILE
+        <span>一點真實、一點舞台感的混合設定檔。</span>
+      </h2>
       <p class="section-subtitle">
-        一點小小的自我介紹，讓你更認識舞台下的我。
+        台上可以 Girl Crush，台下可以超普通的系女學生。喜歡在校園裡找不同的角落，
+        把每一套造型都當成一個小作品。
       </p>
 
       <div class="about-grid">
         <div class="card about-text">
           <p>
-            大家好，我是小晴，目前是 XX 大學資管系二年級。
-            個性有一點害羞，但站上舞台就會切換成全力以赴模式。
+            平常在系館就是專心上課、寫作業的普通大學生，
+            但一到排練教室或舞台，就會切換成全力輸出的表演模式。
           </p>
           <p>
-            平常除了上課、寫作業之外，最大的重心就是社團排練。
-            喜歡把每一次上台都當成和大家約好的小小約會，希望能用歌聲把溫暖傳給你。
+            我希望把校園女團做成一件「有態度、又不失學生感」的事：
+            造型、舞風、歌單都會跟團員一起討論，今天可以是甜一點的 school look，
+            明天也可以是全黑偏酷的夜舞台。
           </p>
           <p>
-            如果你也喜歡校園女團、喜歡舞台，歡迎常來這個小小個人頁逛逛：
-            不定期會更新練團日常、表演資訊跟一點點少女心的小碎念。
+            這個頁面就當作我的「校園時尚日誌」，
+            從課表、排練到穿搭，都會慢慢更新。如果你剛好也對舞台、音樂或造型有興趣，
+            歡迎常來看，看我們會把校園變成什麼樣的舞台。
           </p>
 
           <div class="tag-list">
-            <span class="tag">MBTI：ISFJ</span>
-            <span class="tag">最愛顏色：粉×白</span>
-            <span class="tag">愛喝：抹茶拿鐵</span>
-            <span class="tag">放學：社辦報到</span>
-            <span class="tag">興趣：寫歌、排舞</span>
+            <span class="tag"><b>STYLE：</b> Girlcrush × Campus Street</span>
+            <span class="tag"><b>MBTI：</b> INFJ</span>
+            <span class="tag"><b>Color Code：</b> 黑 × 霓虹點綴</span>
+            <span class="tag"><b>愛歌：</b> K-POP 女團舞曲</span>
+            <span class="tag"><b>必備：</b> 黑西裝外套＋耳環</span>
           </div>
         </div>
 
         <div class="card">
-          <h3 style="font-size: 0.95rem; margin-bottom: 0.4rem;">日常時間軸 · 校園版</h3>
+          <h3 style="font-size: 0.9rem; margin-bottom: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase;">
+            DAILY TIMELINE · 校園節奏
+          </h3>
           <ul class="timeline">
             <li>
-              <strong>08:00</strong> · 早八趕課成功，抹茶拿鐵是必須
+              <strong>08:30</strong> ·
+              早上第一杯手搖＋系上課，偶爾在筆記邊畫舞台草稿。
             </li>
             <li>
-              <strong>12:10</strong> · 和團員一起在學餐討論新舞步
+              <strong>12:30</strong> ·
+              學餐或外帶，在校園角落跟團員對舞步、對 outfit。
             </li>
             <li>
-              <strong>15:30</strong> · 程式作業時間（偶爾會邊聽 demo）
+              <strong>16:00</strong> ·
+              寫作業、剪 cover 影片、整理社群貼文草稿。
             </li>
             <li>
-              <strong>18:00</strong> · 社辦集合，開始今天的 vocal＋舞蹈排練
+              <strong>18:30</strong> ·
+              社團排練：vocal 練習、舞台走位、造型試穿。
             </li>
             <li>
-              <strong>22:30</strong> · 回宿舍整理今日練習＋寫下一點小日記
+              <strong>23:30</strong> ·
+              回宿舍洗掉舞台妝，寫一下今天的靈感跟明天想穿什麼。
             </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- 校園行程 / 課表感 -->
+    <!-- Weekly schedule -->
     <section id="schedule">
-      <h2 class="section-title">校園生活 Schedule</h2>
+      <h2 class="section-title">
+        <div class="section-mark"></div>
+        WEEKLY FLOW
+        <span>一週大概在忙些什麼。</span>
+      </h2>
       <p class="section-subtitle">
-        一周的大致行程，方便你抓到我大概什麼時候在忙什麼。
+        讀書、練團、拍片、構圖 outfit，全部塞進一週。以下是大概的節奏，方便你猜我現在在幹嘛。
       </p>
 
       <div class="card">
         <div class="schedule-grid">
           <div class="schedule-item">
-            <h4>MON · 星期一</h4>
-            <span>上午｜資料庫系統</span>
-            <span>晚上｜舞蹈基本功練習</span>
+            <h4>MON · Reset</h4>
+            <span>早上｜課表滿檔，行事曆排好一週。</span>
+            <span>晚上｜基礎 vocal 練習＋樂團會議。</span>
           </div>
           <div class="schedule-item">
-            <h4>TUE · 星期二</h4>
-            <span>下午｜程式設計課</span>
-            <span>晚上｜Vocal 練習 + 和聲排練</span>
+            <h4>TUE · Practice</h4>
+            <span>下午｜程式設計課，偷偷在腦中想舞台畫面。</span>
+            <span>晚上｜編舞、對點、錄練習影片。</span>
           </div>
           <div class="schedule-item">
-            <h4>WED · 星期三</h4>
-            <span>白天｜報告準備 / 作業日</span>
-            <span>晚上｜社團例會 + 公演企劃</span>
+            <h4>WED · Concept</h4>
+            <span>白天｜報告、作業日。</span>
+            <span>晚上｜公演主題、造型 moodboard 討論。</span>
           </div>
           <div class="schedule-item">
-            <h4>THU · 星期四</h4>
-            <span>下午｜專題討論</span>
-            <span>晚上｜舞團聯合排練</span>
+            <h4>THU · Styling</h4>
+            <span>下午｜逛網拍/挖衣櫃搭配舞台服。</span>
+            <span>晚上｜微調走位＋表情管理特訓。</span>
           </div>
           <div class="schedule-item">
-            <h4>FRI · 星期五</h4>
-            <span>晚上｜校園活動或小表演</span>
-            <span>之後｜宵夜＋女孩聚會</span>
+            <h4>FRI · Stage</h4>
+            <span>晚上｜小型校園舞台/活動演出。</span>
+            <span>之後｜團員宵夜 debrief &amp; 自拍時間。</span>
           </div>
           <div class="schedule-item">
-            <h4>WEEKEND</h4>
-            <span>錄音／拍練習影片</span>
-            <span>偶爾在宿舍追劇放空</span>
+            <h4>WEEKEND · Edit</h4>
+            <span>剪影片、整理照片、排下週貼文。</span>
+            <span>偶爾在床上當廢物追劇一整天。</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 照片牆 -->
+    <!-- Gallery -->
     <section id="gallery">
-      <h2 class="section-title">照片牆 Gallery</h2>
+      <h2 class="section-title">
+        <div class="section-mark"></div>
+        STYLE GALLERY
+        <span>校園 × 舞台 × 日常穿搭。</span>
+      </h2>
       <p class="section-subtitle">
-        一點點校園風景、一點點練團側拍，還有很多想跟你分享的日常。
+        這裡會放一些校園日常、排練、舞台和穿搭照片。之後可以慢慢替換成你的實際照片。
       </p>
 
       <div class="card">
         <div class="gallery-grid">
-          <!-- TODO: 換成自己上傳的照片 -->
+          <!-- 換成自己的圖 -->
           <div class="gallery-item">
-            <img src="https://via.placeholder.com/600x800.png?text=Rehearsal" alt="排練照片">
-            <span class="gallery-label">練團側拍</span>
+            <img src="https://via.placeholder.com/800x600.png?text=Campus+Runway" alt="校園穿搭照">
+            <span class="gallery-label">Campus Runway Look</span>
           </div>
           <div class="gallery-item">
-            <img src="https://via.placeholder.com/800x600.png?text=Campus+View" alt="校園風景">
-            <span class="gallery-label">校園午後</span>
+            <img src="https://via.placeholder.com/800x600.png?text=Rehearsal+Room" alt="排練照">
+            <span class="gallery-label">Rehearsal Night</span>
           </div>
           <div class="gallery-item">
-            <img src="https://via.placeholder.com/800x600.png?text=Stage" alt="舞台照片">
-            <span class="gallery-label">舞台燈光</span>
+            <img src="https://via.placeholder.com/800x600.png?text=Stage+Lights" alt="舞台照">
+            <span class="gallery-label">Live Stage Moment</span>
           </div>
           <div class="gallery-item">
-            <img src="https://via.placeholder.com/800x600.png?text=Daily+Life" alt="日常">
-            <span class="gallery-label">宿舍日常</span>
+            <img src="https://via.placeholder.com/800x600.png?text=Dorm+Chill" alt="宿舍日常照">
+            <span class="gallery-label">Dorm Chill Mode</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 粉絲留言區（表單外觀，未串接後端） -->
+    <!-- Fan message -->
     <section id="fans">
-      <h2 class="section-title">寫信給我 Fan Message</h2>
+      <h2 class="section-title">
+        <div class="section-mark"></div>
+        MESSAGE BOARD
+        <span>來留一句話，當作我們在校園擦肩而過的小暗號。</span>
+      </h2>
       <p class="section-subtitle">
-        如果你有想對我說的話、想分享的心情，歡迎在這裡留下小小留言。
+        想對我說什麼、想許願 cover 歌曲、或只是單純想說加油，都可以在這裡留下。
       </p>
 
-      <div class="card fan-card">
+      <div class="card">
         <div class="fan-row">
           <div>
             <div class="fan-input">
               <label for="nickname">暱稱 Nickname</label>
-              <input id="nickname" type="text" placeholder="例：小星星、校園路過的你">
+              <input id="nickname" type="text" placeholder="例：Nightwalker、後排觀眾 A">
             </div>
             <div class="fan-input">
               <label for="contact">聯絡方式（選填）</label>
@@ -832,26 +1004,27 @@
             </div>
             <div class="fan-input">
               <label for="message">想說的話 Message</label>
-              <textarea id="message" placeholder="例：公演加油！期待看到你在舞台上的樣子 ✨"></textarea>
+              <textarea id="message" placeholder="例：舞台好好看！下次想看你唱哪一首？"></textarea>
             </div>
             <button class="btn-primary" type="button">
-              送出（目前僅示意）💌
+              SEND (DEMO ONLY) ✦
             </button>
             <p class="fan-hint">
-              ※ 目前這個表單只是頁面示意，如果要真的收到訊息，可以之後串接 Google Form 或後端服務。
+              ※ 目前只是前端展示，如果要真的收到訊息，可以之後串接 Google Form、LINE Bot 或自己的後端。
             </p>
           </div>
-
           <div>
             <div class="fake-msg">
-              <strong>小提醒：</strong><br>
-              有時候可能會因為課業和練團比較忙沒辦法馬上回覆，
-              但每一則留言我都會很珍惜，謝謝願意花時間在這個小角落停下腳步的你 💗
+              <strong>READ ME ·</strong><br>
+              有時候可能會被課業、排練淹沒，但每一則留言我都會存起來，
+              當成演出前的充電站。如果有看到你在現場比的手勢或應援牌，
+              會默默記在心裡。
             </div>
-            <div class="fake-msg" style="margin-top: 0.5rem;">
-              <strong>小目標：</strong><br>
-              希望有一天可以和團員一起站上更大的舞台，
-              然後在台下看到你也在對我們揮手，那應該會超級感動。
+            <div class="fake-msg">
+              <strong>FUTURE STAGE ·</strong><br>
+              希望接下來可以把更多風格帶進校園 —— 不只是可愛或酷，
+              而是「這就是我們這一代在校園的樣子」。如果有一天在走廊擦肩而過，
+              就當我們在同一個劇場裡排練吧。
             </div>
           </div>
         </div>
@@ -859,9 +1032,9 @@
     </section>
 
     <footer>
-      <div>© 2025 Campus Girls · Member Page · Sunny</div>
+      <div>© 2025 CAMPUS GIRLS · Member Profile · RIN</div>
       <div class="footer-links">
-        <!-- TODO: 可換成自己的社群連結 -->
+        <!-- 之後可以換成自己的連結 -->
         <a href="#">Instagram</a>
         <a href="#">YouTube</a>
         <a href="#">TikTok</a>
