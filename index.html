@@ -1,1 +1,873 @@
-hellow world
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Girls - 成員個人頁</title>
+
+  <!-- 可愛一點的字體（可自行更換） -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fff7fb;
+      --card-bg: #ffffff;
+      --accent: #ff82a9;
+      --accent-light: #ffd4e4;
+      --text-main: #333333;
+      --text-sub: #777777;
+      --border-soft: #ffe0ef;
+      --shadow-soft: 0 12px 30px rgba(255, 130, 169, 0.16);
+      --radius-big: 24px;
+      --radius-small: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #ffeaf4, #fff7fb 40%, #ffffff 85%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 頁面寬度控制 */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1.2rem 1.2rem 3rem;
+    }
+
+    /* 頂部導覽列 */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 247, 251, 0.85);
+      border-bottom: 1px solid rgba(255, 208, 229, 0.7);
+    }
+
+    .nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0.6rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .logo-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ff82a9, #ffc2dd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(255, 130, 169, 0.5);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-weight: 500;
+      color: var(--text-sub);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero 區塊 */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+      padding-top: 1.8rem;
+    }
+
+    .hero-text small {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-light);
+      background: rgba(255, 246, 251, 0.9);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-text h1 {
+      margin-top: 0.8rem;
+      font-size: clamp(2.1rem, 4vw, 2.7rem);
+      line-height: 1.15;
+    }
+
+    .hero-text h1 span {
+      color: var(--accent);
+    }
+
+    .hero-text p {
+      margin-top: 0.7rem;
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      max-width: 520px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px dashed var(--accent-light);
+      color: var(--accent);
+    }
+
+    .hero-actions {
+      margin-top: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      padding: 0.55rem 1.3rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff82a9, #ffc2dd);
+      color: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(255, 103, 163, 0.35);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--accent);
+      border-color: var(--accent-light);
+    }
+
+    .btn-ghost:hover {
+      background: #fff;
+    }
+
+    .hero-meta {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
+
+    .hero-meta strong {
+      color: var(--accent);
+    }
+
+    /* 個人照片區 */
+    .hero-photo-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-card {
+      background: var(--card-bg);
+      border-radius: 28px;
+      padding: 1.2rem 1.2rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .decor-circle {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ffeaf4, #ffc2dd);
+      top: -40px;
+      right: -40px;
+      opacity: 0.6;
+    }
+
+    .decor-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      color: var(--accent);
+      border: 1px dashed var(--accent-light);
+    }
+
+    .hero-photo {
+      position: relative;
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo img {
+      width: 210px;
+      height: 210px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 4px solid #ffffff;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 0.4rem;
+      right: 2rem;
+      background: #fff7fb;
+      border-radius: 999px;
+      padding: 0.3rem 0.6rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      border: 1px solid var(--accent-light);
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #65c66c;
+    }
+
+    .hero-info {
+      margin-top: 1.1rem;
+      text-align: center;
+    }
+
+    .hero-info h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-info span {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    .hero-stats {
+      margin-top: 0.8rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--text-sub);
+    }
+
+    .hero-stats strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
+
+    /* 區域標題 */
+    .section-title {
+      margin-top: 2.4rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 6px;
+      height: 18px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ff82a9, #ffc2dd);
+    }
+
+    .section-subtitle {
+      font-size: 0.86rem;
+      color: var(--text-sub);
+      margin-bottom: 0.9rem;
+    }
+
+    /* 卡片共用樣式 */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-big);
+      border: 1px solid var(--border-soft);
+      padding: 1.1rem 1.3rem;
+      box-shadow: 0 10px 24px rgba(255, 130, 169, 0.08);
+    }
+
+    /* 關於我 / 校園生活 */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.4rem;
+      margin-top: 0.4rem;
+    }
+
+    .about-text p {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-light);
+      background: #fff9fc;
+      color: var(--accent);
+    }
+
+    .timeline {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    .timeline li {
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed #ffe6f0;
+    }
+
+    .timeline strong {
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    /* 課表 / 行程 */
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.4rem;
+      font-size: 0.82rem;
+    }
+
+    .schedule-item {
+      background: #fff9fc;
+      border-radius: var(--radius-small);
+      padding: 0.65rem 0.8rem;
+      border: 1px dashed var(--accent-light);
+    }
+
+    .schedule-item h4 {
+      font-size: 0.85rem;
+      margin-bottom: 0.1rem;
+      color: var(--accent);
+    }
+
+    .schedule-item span {
+      display: block;
+      color: var(--text-sub);
+    }
+
+    /* 照片牆 */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.4rem;
+    }
+
+    .gallery-item {
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      background: #ffe6f0;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-label {
+      position: absolute;
+      left: 0.6rem;
+      bottom: 0.6rem;
+      font-size: 0.72rem;
+      background: rgba(255, 255, 255, 0.88);
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      color: var(--accent);
+    }
+
+    /* 粉絲留言區 */
+    .fan-card {
+      margin-top: 0.4rem;
+    }
+
+    .fan-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.1rem;
+      margin-top: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .fan-input {
+      margin-bottom: 0.7rem;
+    }
+
+    .fan-input label {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      display: block;
+      margin-bottom: 0.18rem;
+    }
+
+    .fan-input input,
+    .fan-input textarea {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border-radius: 10px;
+      border: 1px solid #ffd8ea;
+      outline: none;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: #fff;
+    }
+
+    .fan-input textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .fan-input input:focus,
+    .fan-input textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(255, 130, 169, 0.18);
+    }
+
+    .fan-hint {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
+
+    .fake-msg {
+      margin-top: 0.4rem;
+      background: #fff9fc;
+      border-radius: 14px;
+      padding: 0.6rem 0.7rem;
+      border: 1px dashed var(--accent-light);
+      font-size: 0.82rem;
+      color: var(--text-sub);
+    }
+
+    .fake-msg strong {
+      color: var(--accent);
+    }
+
+    /* 底部資訊 */
+    footer {
+      margin-top: 2.4rem;
+      padding-top: 1.3rem;
+      border-top: 1px dashed #ffdbe9;
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      text-align: center;
+    }
+
+    .footer-links {
+      margin-top: 0.4rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+    }
+
+    /* RWD 調整 */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo-wrap {
+        order: -1;
+      }
+
+      .hero-card {
+        margin: 0 auto;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fan-row {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none; /* 簡化：手機版藏起來導覽列 */
+      }
+
+      .container {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 導覽列 -->
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-badge">CG</div>
+        <span>Campus Girls</span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">關於我</a>
+        <a href="#schedule">校園生活</a>
+        <a href="#gallery">照片牆</a>
+        <a href="#fans">粉絲留言</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Hero 區：大頭照 + 簡介 -->
+    <section class="hero">
+      <div class="hero-text">
+        <small>Campus Girl Group · 成員介紹</small>
+        <h1>嗨，我是 <span>小晴</span> ☀<br>校園女團的陽光 Vocal</h1>
+        <p>
+          就讀「XX大學 資訊管理學系」，平常在教室寫程式、社團練舞排歌。
+          喜歡粉色系、抹茶拿鐵和在放學後跟大家一起練團的時光。
+        </p>
+
+        <div class="hero-tags">
+          <span class="hero-tag">#主唱 Vocal</span>
+          <span class="hero-tag">#舞蹈社</span>
+          <span class="hero-tag">#少女系穿搭</span>
+          <span class="hero-tag">#期末公演準備中</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#fans" class="btn-primary">寫一封小紙條給我 ✨</a>
+          <a href="#gallery" class="btn-ghost">看更多校園日常 📸</a>
+        </div>
+
+        <div class="hero-meta">
+          目前準備 <strong>期末女團公演</strong>，預計在 <strong>6 月底</strong> 登場！
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <div class="hero-card">
+          <div class="decor-circle"></div>
+          <div class="decor-tag">成員個人頁 · 01</div>
+          <div class="hero-photo">
+            <!-- TODO: 換成自己的照片 -->
+            <img src="https://via.placeholder.com/400x400.png?text=Member+Photo" alt="成員大頭照">
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              練團模式：啟動中
+            </div>
+          </div>
+          <div class="hero-info">
+            <h2>小晴 Sunny</h2>
+            <span>XX大學 資管系 · 二年級</span>
+            <div class="hero-stats">
+              <div>
+                <strong>3</strong>
+                校園舞台
+              </div>
+              <div>
+                <strong>5</strong>
+                原創翻唱
+              </div>
+              <div>
+                <strong>∞</strong>
+                少女心能量
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 關於我 + 校園生活 -->
+    <section id="about">
+      <h2 class="section-title">關於我 About Me</h2>
+      <p class="section-subtitle">
+        一點小小的自我介紹，讓你更認識舞台下的我。
+      </p>
+
+      <div class="about-grid">
+        <div class="card about-text">
+          <p>
+            大家好，我是小晴，目前是 XX 大學資管系二年級。
+            個性有一點害羞，但站上舞台就會切換成全力以赴模式。
+          </p>
+          <p>
+            平常除了上課、寫作業之外，最大的重心就是社團排練。
+            喜歡把每一次上台都當成和大家約好的小小約會，希望能用歌聲把溫暖傳給你。
+          </p>
+          <p>
+            如果你也喜歡校園女團、喜歡舞台，歡迎常來這個小小個人頁逛逛：
+            不定期會更新練團日常、表演資訊跟一點點少女心的小碎念。
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">MBTI：ISFJ</span>
+            <span class="tag">最愛顏色：粉×白</span>
+            <span class="tag">愛喝：抹茶拿鐵</span>
+            <span class="tag">放學：社辦報到</span>
+            <span class="tag">興趣：寫歌、排舞</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 0.95rem; margin-bottom: 0.4rem;">日常時間軸 · 校園版</h3>
+          <ul class="timeline">
+            <li>
+              <strong>08:00</strong> · 早八趕課成功，抹茶拿鐵是必須
+            </li>
+            <li>
+              <strong>12:10</strong> · 和團員一起在學餐討論新舞步
+            </li>
+            <li>
+              <strong>15:30</strong> · 程式作業時間（偶爾會邊聽 demo）
+            </li>
+            <li>
+              <strong>18:00</strong> · 社辦集合，開始今天的 vocal＋舞蹈排練
+            </li>
+            <li>
+              <strong>22:30</strong> · 回宿舍整理今日練習＋寫下一點小日記
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 校園行程 / 課表感 -->
+    <section id="schedule">
+      <h2 class="section-title">校園生活 Schedule</h2>
+      <p class="section-subtitle">
+        一周的大致行程，方便你抓到我大概什麼時候在忙什麼。
+      </p>
+
+      <div class="card">
+        <div class="schedule-grid">
+          <div class="schedule-item">
+            <h4>MON · 星期一</h4>
+            <span>上午｜資料庫系統</span>
+            <span>晚上｜舞蹈基本功練習</span>
+          </div>
+          <div class="schedule-item">
+            <h4>TUE · 星期二</h4>
+            <span>下午｜程式設計課</span>
+            <span>晚上｜Vocal 練習 + 和聲排練</span>
+          </div>
+          <div class="schedule-item">
+            <h4>WED · 星期三</h4>
+            <span>白天｜報告準備 / 作業日</span>
+            <span>晚上｜社團例會 + 公演企劃</span>
+          </div>
+          <div class="schedule-item">
+            <h4>THU · 星期四</h4>
+            <span>下午｜專題討論</span>
+            <span>晚上｜舞團聯合排練</span>
+          </div>
+          <div class="schedule-item">
+            <h4>FRI · 星期五</h4>
+            <span>晚上｜校園活動或小表演</span>
+            <span>之後｜宵夜＋女孩聚會</span>
+          </div>
+          <div class="schedule-item">
+            <h4>WEEKEND</h4>
+            <span>錄音／拍練習影片</span>
+            <span>偶爾在宿舍追劇放空</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 照片牆 -->
+    <section id="gallery">
+      <h2 class="section-title">照片牆 Gallery</h2>
+      <p class="section-subtitle">
+        一點點校園風景、一點點練團側拍，還有很多想跟你分享的日常。
+      </p>
+
+      <div class="card">
+        <div class="gallery-grid">
+          <!-- TODO: 換成自己上傳的照片 -->
+          <div class="gallery-item">
+            <img src="https://via.placeholder.com/600x800.png?text=Rehearsal" alt="排練照片">
+            <span class="gallery-label">練團側拍</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://via.placeholder.com/800x600.png?text=Campus+View" alt="校園風景">
+            <span class="gallery-label">校園午後</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://via.placeholder.com/800x600.png?text=Stage" alt="舞台照片">
+            <span class="gallery-label">舞台燈光</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://via.placeholder.com/800x600.png?text=Daily+Life" alt="日常">
+            <span class="gallery-label">宿舍日常</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 粉絲留言區（表單外觀，未串接後端） -->
+    <section id="fans">
+      <h2 class="section-title">寫信給我 Fan Message</h2>
+      <p class="section-subtitle">
+        如果你有想對我說的話、想分享的心情，歡迎在這裡留下小小留言。
+      </p>
+
+      <div class="card fan-card">
+        <div class="fan-row">
+          <div>
+            <div class="fan-input">
+              <label for="nickname">暱稱 Nickname</label>
+              <input id="nickname" type="text" placeholder="例：小星星、校園路過的你">
+            </div>
+            <div class="fan-input">
+              <label for="contact">聯絡方式（選填）</label>
+              <input id="contact" type="text" placeholder="IG / Email / 其他（可留可不留）">
+            </div>
+            <div class="fan-input">
+              <label for="message">想說的話 Message</label>
+              <textarea id="message" placeholder="例：公演加油！期待看到你在舞台上的樣子 ✨"></textarea>
+            </div>
+            <button class="btn-primary" type="button">
+              送出（目前僅示意）💌
+            </button>
+            <p class="fan-hint">
+              ※ 目前這個表單只是頁面示意，如果要真的收到訊息，可以之後串接 Google Form 或後端服務。
+            </p>
+          </div>
+
+          <div>
+            <div class="fake-msg">
+              <strong>小提醒：</strong><br>
+              有時候可能會因為課業和練團比較忙沒辦法馬上回覆，
+              但每一則留言我都會很珍惜，謝謝願意花時間在這個小角落停下腳步的你 💗
+            </div>
+            <div class="fake-msg" style="margin-top: 0.5rem;">
+              <strong>小目標：</strong><br>
+              希望有一天可以和團員一起站上更大的舞台，
+              然後在台下看到你也在對我們揮手，那應該會超級感動。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2025 Campus Girls · Member Page · Sunny</div>
+      <div class="footer-links">
+        <!-- TODO: 可換成自己的社群連結 -->
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">TikTok</a>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
+
